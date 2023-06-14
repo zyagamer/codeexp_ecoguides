@@ -94,7 +94,10 @@ export default function App() {
           })}>
           <Tab.Screen name="Explore" options={{ headerShown: false }} component={HomeScreen} />
           <Tab.Screen name="Shop" options={{ headerShown: false }} component={shopScreen} />
-          <Tab.Screen name="Add" options={{ headerShown: false }} component={writeScreen} />
+          <Tab.Screen 
+            name="Add" 
+            options={{ headerShown: false, presentation: "modal", animationType: "slide"}} 
+            component={writeScreen} />
           <Tab.Screen name="Progress" options={{ headerShown: false }} component={progressScreen} />
           <Tab.Screen name="Settings" options={{ headerShown: false }} component={settingsScreen} />
         </Tab.Navigator>

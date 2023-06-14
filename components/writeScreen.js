@@ -4,7 +4,8 @@ import {
   Text,
   View,
   TextInput,
-  Pressable
+  Pressable,
+  Modal
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -13,13 +14,41 @@ import { Feather, MaterialIcons, Ionicons, Fontisto, Octicons } from '@expo/vect
 export default function NewAccount({ navigation }) {
   const [text, setText] = useState('')
   const [text1, setText1] = useState('')
-
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
       <View style={styles.title}>
         <Text style={styles.titleText}>Write</Text>
+        <Pressable onPress={() => {navigation.navigate("Explore");}} style={styles.submitButton}>
+          <Text style={styles.submitText}>Post</Text>
+        </Pressable>
       </View>
-      <View style={styles.container}></View>
+      <View style={styles.container}>
+        <View style={styles.titleBox}>
+          <View style={styles.inputTitleText}>
+            <TextInput
+              value={text}
+              style={{ fontSize: 20, color: 'black' }}
+              placeholder="Title"
+              onChangeText={(text) => {
+                setText([text])
+              }}
+            />
+          </View>
+        </View>
+        <View style={styles.contentBox}>
+          <View style={styles.contentText}>
+            <TextInput
+              value={text1}
+              style={{ fontSize: 20, color: 'black'}}
+              placeholder="body text"
+              onChangeText={(text1) => {
+                setText1([text1])
+              }}
+            />
+          </View>
+        </View>
+      </View>
     </>
   );
 }
@@ -27,14 +56,17 @@ export default function NewAccount({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#DAD7CD",
+    flex: 0.8,
+    backgroundColor: "#EDEDED",
     alignItems: "left",
     justifyContent: "left",
   },
   title: {
-    backgroundColor: "#DAD7CD",
+    backgroundColor: "#EDEDED",
     textAlign: "left",
+    flex: 0.2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   titleText: {
     fontSize: 35,
@@ -43,49 +75,51 @@ const styles = StyleSheet.create({
     marginTop: "20%",
     color: "#3A5A40",
   },
-  loginBox: {
+  titleBox: {
     fontSize: 20,
-    backgroundColor: "#e8e8e8",
+    backgroundColor: "#D9D9D9",
     fontWeight: "bold",
     width: "80%",
     alignItems: "center",
     flex: 0.15,
     flexDirection: 'row',
-    borderRadius: "20%",
+    borderRadius: "10%",
     marginLeft: "10%",
     marginTop: "10%",
   },
-  otherLoginBox: {
+  inputTitleText: {
+    alignContent: "flex-start",
+    margin: "5%",
+  },
+  contentBox: {
     fontSize: 20,
-    backgroundColor: "#e8e8e8",
+    backgroundColor: "#D9D9D9",
     fontWeight: "bold",
     width: "80%",
-    alignItems: "center",
-    flex: 0.15,
-    flexDirection: 'row',
-    borderRadius: "20%",
+    alignItems: "left",
+    flex: 0.6,
+    borderRadius: "10%",
     marginLeft: "10%",
-    marginTop: "5%",
+    marginTop: "10%",
   },
-  icon: {
-    margin: 10,
-    color: "#737373",
+  contentText: {
+    alignContent: "flex-start",
+    margin: "5%",
   },
   loginPrompt: {
     color: "#737373",
   },
-  signInButton: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  submitButton: {
     backgroundColor: "#588157",
-    alignSelf: "flex-end",
+    alignSelf: "center",
     marginRight: "10%",
-    borderRadius: "10%",
+    borderRadius: "5%",
     marginTop: "10%",
   },
-  signInText: {
+  submitText: {
     color: "white",
     fontSize: 18,
-    margin: "3%"
-  }
+    margin: "5%",
+    alignSelf: "center",
+  },
 });

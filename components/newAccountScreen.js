@@ -60,19 +60,19 @@ export default function NewAccount({ navigation }) {
         <View style={styles.otherLoginBox}>
           <Fontisto name="google" size={24} color="black" style={styles.icon}/>
           <View style={styles.loginTexts}>
-            <Text style={styles.loginPrompt}>Sign in with Google</Text>
+            <Text style={styles.loginPrompt}>Continue with Google</Text>
           </View>
         </View>
         <View style={styles.otherLoginBox}>
           <Octicons name="mark-github" size={24} color="black" style={styles.icon}/>
           <View style={styles.loginTexts}>
-            <Text style={styles.loginPrompt}>Sign in with GitHub</Text>
+            <Text style={styles.loginPrompt}>Continue with GitHub</Text>
           </View>
         </View>
         <View style={styles.otherLoginBox}>
           <Ionicons name="md-logo-twitter" size={24} color="black" style={styles.icon}/>
           <View style={styles.loginTexts}>
-            <Text style={styles.loginPrompt}>Sign in with Twitter</Text>
+            <Text style={styles.loginPrompt}>Continue with Twitter</Text>
           </View>
         </View>
       </View>
